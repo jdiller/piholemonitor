@@ -9,9 +9,7 @@ services:
     # Mount configuration and certificates
     volumes:
       # Mount your config file (adjust path as needed)
-      - ./config:/app/config:ro
-      # Mount client certificates directory
-      - ./certs:/app/certs:ro
+      - ./config.ini:/config.ini:ro
 
     # Environment variables (optional - can also use config file)
     environment:
