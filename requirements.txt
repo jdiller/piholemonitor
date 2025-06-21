@@ -1,0 +1,6 @@
+certifi==2025.6.15
+charset-normalizer==3.4.2
+datadog>=0.44.0
+idna==3.10
+requests>=2.25.0
+urllib3==2.5.0

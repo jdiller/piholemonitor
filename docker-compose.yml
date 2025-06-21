@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  pihole-monitor:
+    build: .
+    container_name: pihole-monitor
+    restart: unless-stopped
+
+    # Mount configuration and certificates
+    volumes:
+      # Mount your config file (adjust path as needed)
+      - ./config:/app/config:ro
+      # Mount client certificates directory
+      - ./certs:/app/certs:ro
+
+    # Environment variables (optional - can also use config file)
+    environment:
+      - PYTHONUNBUFFERED=1
+
+    # Optional environment file
+    # env_file:
+    #   - .env
+
+    # Network configuration if needed
+    # network_mode: host  # Use host networking if needed for local services
+
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 64M
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

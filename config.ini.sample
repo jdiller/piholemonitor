@@ -1,0 +1,14 @@
+[datadog]
+statsd_host=127.0.0.1
+statsd_port=8125
+
+[pihole]
+host=pi.hole
+api_key=
+client_cert=
+
+[logging]
+log_level = DEBUG
+log_file = piholemonitor.log
+log_requests = true
+stdout = true
