@@ -2,6 +2,30 @@
 
 A Python daemon that monitors PiHole v6 API and sends metrics to Datadog via StatsD.
 
+## Configuration
+
+The application uses a configuration file (`config.ini`) with the following sections:
+
+### PiHole Settings
+- **host**: PiHole server hostname or IP
+- **protocol**: Connection protocol (`auto`, `http`, or `https`)
+  - `auto`: Try HTTPS first, fallback to HTTP
+  - `https`: Force HTTPS connection
+  - `http`: Force HTTP connection
+- **port**: Custom port (optional)
+  - Leave blank for protocol defaults (443 for HTTPS, 80 for HTTP)
+  - Specify custom port if your PiHole runs on non-standard ports
+- **password**: PiHole admin password (optional)
+  - Leave blank if PiHole authentication is disabled
+  - Required only if you need access to authenticated endpoints
+- **client_cert**: Path to client certificate file (for client cert authentication)
+
+### Datadog Settings
+- **statsd_host**: StatsD server hostname
+- **statsd_port**: StatsD server port
+
+Copy `config.ini.sample` to `config.ini` and customize for your environment.
+
 ## Docker Usage
 
 ### Build the Image

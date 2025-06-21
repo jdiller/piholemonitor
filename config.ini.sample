@@ -4,7 +4,13 @@ statsd_port=8125
 
 [pihole]
 host=pi.hole
-api_key=
+# Protocol: auto, http, or https (default: auto)
+protocol=auto
+# Port: leave blank for protocol defaults (443 for https, 80 for http)
+port=
+# Password for PiHole admin authentication (optional - leave blank if auth is disabled)
+password=
+# Path to client certificate file (for client cert authentication)
 client_cert=
 
 [logging]
