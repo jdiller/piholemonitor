@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   pihole-monitor:
     build: .
@@ -9,7 +7,7 @@ services:
     # Mount configuration and certificates
     volumes:
       # Mount your config file (adjust path as needed)
-      - ./config.ini:/config.ini:ro
+      - ./config.ini:/app/config.ini:ro
 
     # Environment variables (optional - can also use config file)
     environment:
@@ -20,15 +18,7 @@ services:
     #   - .env
 
     # Network configuration if needed
-    # network_mode: host  # Use host networking if needed for local services
-
-    # Resource limits (optional)
-    deploy:
-      resources:
-        limits:
-          memory: 128M
-        reservations:
-          memory: 64M
+    network_mode: host  # Use host networking if needed for local services
 
     # Logging configuration
     logging:

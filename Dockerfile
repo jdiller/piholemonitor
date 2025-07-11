@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install system dependencies (if any are needed)
 RUN apt-get update && apt-get install -y \
-    ca-certificates \
+    ca-certificates procps\
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (for better Docker layer caching)
